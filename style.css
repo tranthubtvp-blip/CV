@@ -1,0 +1,390 @@
+/* ============================================
+   RESET & BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: #000000;
+    background-color: #eafbf2;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+nav {
+    background-color: #fdf9fa;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 0 15px;
+}
+
+nav ul li a {
+    color: #42281c;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 6px 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+    border-bottom-color: #ffd700;
+}
+
+nav ul li a.active {
+    color: #d6336c;
+    border-bottom-color: #d6336c;
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about-section {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.about-section h1 {
+    font-size: 28px;
+    color: #42281c;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid lch(15.08% 15.35 56.98);
+}
+
+.about-section h2 {
+    font-size: 22px;
+    color: hsl(16, 47%, 19%);
+    margin: 0 0 15px;
+}
+
+.about-section p {
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+/* ============================================
+   CONTACT INFO BOX
+   ============================================ */
+.contact-info {
+    background: lch(90.44% 3.05 39.19);
+    padding: 16px 20px;
+    border-left: 4px solid hsl(27, 54%, 11%);
+    border-radius: 4px;
+    margin: 20px 0 0;
+}
+
+.contact-info p {
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info a {
+    color: #442537;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   LIST SECTIONS (Courses, Research)
+   ============================================ */
+.list-section {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.list-section h2 {
+    font-size: 22px;
+    color: lch(12.62% 15.23 48.43);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.list-section ul {
+    padding-left: 25px;
+}
+
+.list-section ul li {
+    margin-bottom: 8px;
+}
+
+.list-section ul li::marker {
+    color: #a4f7e1;
+}
+
+/* ============================================
+   PUBLICATIONS SECTION
+   ============================================ */
+.pub-section {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.pub-section h2 {
+    font-size: 22px;
+    color: hsl(27, 56%, 20%);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.pub-section h3 {
+    font-size: 18px;
+    color: hwb(17 15% 62%);
+    margin: 28px 0 12px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed #d0d7e0;
+}
+
+/* Năm xuất bản */
+.pub-year {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2c5f8a;
+    margin: 22px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid #2c5f8a;
+}
+
+.pub-item {
+    margin-bottom: 16px;
+    padding: 4px 0 4px 15px;
+    border-left: 3px solid #e0e0e0;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.pub-item:hover {
+    border-left-color: #2c5f8a;
+    background-color: #fafbfc;
+}
+
+.pub-item p {
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+.pub-item p:last-child {
+    margin-bottom: 0;
+}
+
+.pub-item .doi {
+    color: #1a73e8;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.pub-item .doi a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.pub-item .doi a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    text-align: center;
+    padding: 25px 20px;
+    color: #777;
+    font-size: 14px;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 40px;
+    background-color: #f5f7fa;
+}
+
+/* ============================================
+   RESPONSIVE - Tablet (<= 768px)
+   ============================================ */
+@media (max-width: 768px) {
+    nav ul {
+        gap: 20px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .about-section,
+    .list-section,
+    .pub-section {
+        padding: 22px 20px;
+    }
+
+    .about-section h1 {
+        font-size: 23px;
+    }
+
+    .about-section h2,
+    .list-section h2,
+    .pub-section h2 {
+        font-size: 19px;
+    }
+
+    .pub-section h3 {
+        font-size: 16px;
+    }
+
+    .pub-year {
+        font-size: 16px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - Mobile (<= 480px)
+   ============================================ */
+@media (max-width: 480px) {
+    nav {
+        padding: 12px 0;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    .about-section,
+    .list-section,
+    .pub-section {
+        padding: 18px 15px;
+        border-radius: 6px;
+    }
+
+    .about-section h1 {
+        font-size: 20px;
+    }
+
+    .about-section h2,
+    .list-section h2,
+    .pub-section h2 {
+        font-size: 17px;
+    }
+
+    .contact-info {
+        padding: 12px 14px;
+    }
+
+    .list-section ul {
+        padding-left: 20px;
+    }
+
+    .pub-item {
+        padding-left: 10px;
+    }
+
+    .pub-item p,
+    .about-section p {
+        text-align: left;
+    }
+}
+
+/* ============================================
+   ABOUT VỚI ẢNH ĐẠI DIỆN
+   ============================================ */
+.about-intro.with-avatar {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.about-intro .avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;        
+    border: 4px solid #5c411a;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(26, 58, 92, 0.2);
+}
+
+.about-intro .about-text h2 {
+    font-size: 22px;
+    color: hsl(23, 50%, 23%);
+    margin-bottom: 12px;
+}
+
+/* Responsive: mobile xếp dọc */
+@media (max-width: 600px) {
+    .about-intro.with-avatar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-intro .avatar {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* ============================================
+   PAGE HIỂN THỊ THEO MỤC
+   ============================================ */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}

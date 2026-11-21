@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THUTRAN - Trang cá nhân</title>
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #000000;
+            background-color: #eafbf2;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        nav {
+            background-color: #fdf9fa;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 0 15px;
+        }
+
+        nav ul li a {
+            color: #42281c;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 6px 4px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+            border-bottom-color: #ffd700;
+        }
+
+        nav ul li a.active {
+            color: #d6336c;
+            border-bottom-color: #d6336c;
+        }
+
+        /* ============================================
+           CONTAINER
+           ============================================ */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about-section {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .about-section h1 {
+            font-size: 28px;
+            color: #42281c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid lch(15.08% 15.35 56.98);
+        }
+
+        .about-section h2 {
+            font-size: 22px;
+            color: hsl(16, 47%, 19%);
+            margin: 0 0 15px;
+        }
+
+        .about-section p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        /* ============================================
+           CONTACT INFO BOX
+           ============================================ */
+        .contact-info {
+            background: lch(90.44% 3.05 39.19);
+            padding: 16px 20px;
+            border-left: 4px solid hsl(27, 54%, 11%);
+            border-radius: 4px;
+            margin: 20px 0 0;
+        }
+
+        .contact-info p {
+            margin-bottom: 6px;
+            text-align: left;
+        }
+
+        .contact-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info a {
+            color: #442537;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           LIST SECTIONS
+           ============================================ */
+        .list-section {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .list-section h2 {
+            font-size: 22px;
+            color: lch(12.62% 15.23 48.43);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .list-section ul {
+            padding-left: 25px;
+        }
+
+        .list-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .list-section ul li::marker {
+            color: #a4f7e1;
+        }
+
+        /* ============================================
+           ABOUT VỚI ẢNH ĐẠI DIỆN 
+           ============================================ */
+        .about-intro.with-avatar {
+            display: flex;
+            gap: 25px; 
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .about-intro .avatar {
+            width: 120px; 
+            height: 120px;
+            object-fit: cover; 
+            border-radius: 15px; 
+            border: 4px solid #5c411a;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(26, 58, 92, 0.2);
+            margin-left: 0; 
+        }
+
+        .about-intro .about-text {
+            flex: 1; 
+        }
+
+        .about-intro .about-text h2 {
+            font-size: 22px;
+            color: hsl(23, 50%, 23%);
+            margin-bottom: 12px;
+        }
+
+        /* ============================================
+           PAGE HIỂN THỊ THEO MỤC
+           ============================================ */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            nav ul { gap: 20px; }
+            nav ul li a { font-size: 14px; }
+            .container { margin: 20px auto; padding: 0 15px; }
+            .about-section, .list-section { padding: 22px 20px; }
+            .about-section h1 { font-size: 23px; }
+            .about-section h2, .list-section h2 { font-size: 19px; }
+        }
+
+        @media (max-width: 600px) {
+            .about-intro.with-avatar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .about-intro .avatar {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav { padding: 12px 0; }
+            nav ul { gap: 12px; }
+            nav ul li a { font-size: 13px; }
+            .about-section, .list-section { padding: 18px 15px; border-radius: 6px; }
+            .about-section h1 { font-size: 20px; }
+            .about-section h2, .list-section h2 { font-size: 17px; }
+            .contact-info { padding: 12px 14px; }
+            .list-section ul { padding-left: 20px; }
+            .about-section p { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#about" data-page="about">About</a></li>
+            <li><a href="#studies" data-page="studies">Courses</a></li>
+            <li><a href="#research" data-page="research">Research</a></li>
+            <li><a href="#publications" data-page="publications">Publications</a></li>
+            <li><a href="#projects" data-page="projects">Projects</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <section class="about-section page" id="about">
+            <h1>About</h1>
+            
+            <!-- ĐÃ SỬA: Bọc ảnh và chữ vào đúng cấu trúc div -->
+            <div class="about-intro with-avatar">
+                <img src="banhmixiumai.jpg" alt="thuw" class="avatar">
+                
+                <div class="about-text">
+                    <h2>Trần Nguyễn Anh Thư</h2>
+                    <p>
+                        Trần Nguyễn Anh Thư, 18 tuổi, cựu học sinh Trường THPT Chuyên Bến Tre. Hiện tại đang theo học ngành Công nghệ Thông tin tại Trường Đại học Sư phạm TP.HCM (HCMUE). Trước đó, Anh Thư từng học cấp 2 tại hai ngôi trường khác nhau, đạt danh hiệu Học sinh giỏi lớp 9 và đậu vào trường Chuyên Bến Tre.
+                    </p>
+                </div>
+            </div>
+           
+
+            <div class="contact-info">
+                <p><strong>Email:</strong> tranthubtvp@gmail.com</p>
+                <p><strong>FB:</strong> <a href="https://www.facebook.com/thu.tran.923675" target="_blank" class="fb-link">Thư Trần</a></p>
+                <p><strong>Phone:</strong> 0833097856</p>
+            </div>
+        </section>
+
+        <section class="list-section page" id="studies">
+            <h2>Học vấn</h2>
+            <ul>
+                <li>THCS Vĩnh Phúc (2 năm)</li>
+                <li>THCS Mỹ Hóa (2 năm)</li>
+                <li>THPT Chuyên Bến Tre</li>
+                <li>Đại học Sư phạm TP.HCM (ngành CNTT)</li>
+            </ul>
+            <h3>Một số môn học tiêu biểu</h3>
+            <ul>
+                <li>Nhập môn Lập trình (C/C++)</li>
+                <li>Cấu trúc dữ liệu và Giải thuật</li>
+                <li>Toán rời rạc</li>
+                <li>Lập trình Web cơ bản (HTML, CSS, JavaScript)</li>
+                <li>Tiếng Anh chuyên ngành</li>
+            </ul>
+        </section>
+
+        <section class="list-section page" id="research">
+            <h2>Sở Thích &amp; Định hướng</h2>
+            <ul>
+                <li>Học hỏi, khám phá những điều mới mẻ</li>
+                <li>Hội họa và thiết kế</li>
+                <li>Quan tâm đến lập trình web và giao diện người dùng (UI/UX)</li>
+                <li>Thích tìm hiểu về trí tuệ nhân tạo ở mức cơ bản</li>
+            </ul>
+            <h3>Định hướng trong thời gian tới</h3>
+            <p>
+                Trong 1–2 năm tới, mình mong muốn củng cố nền tảng lập trình, tham gia
+                các câu lạc bộ học thuật của trường, và thử sức với một vài dự án nhỏ
+                để tích lũy kinh nghiệm thực tế.
+            </p>
+        </section>
+
+        <section class="list-section page" id="publications">
+            <h2>Publications</h2>
+            <p>
+                Hiện tại mình chưa có bài báo khoa học nào được công bố. Trong thời gian
+                tới, mình dự định sẽ tham gia các hoạt động nghiên cứu sinh viên và
+                có thể là một vài bài viết nhỏ trên blog cá nhân về lập trình và học tập.
+            </p>
+            <h3>Bài viết / Ghi chú học tập</h3>
+            <ul>
+                <li><em>"Ghi chú học C++ cho người mới bắt đầu"</em> — bài viết trên blog cá nhân (dự kiến).</li>
+                <li><em>"Tổng hợp kiến thức HTML &amp; CSS cơ bản"</em> — tài liệu tự soạn để ôn tập.</li>
+                <li><em>"Một số mẹo dùng Git cho sinh viên"</em> — ghi chú cá nhân.</li>
+            </ul>
+            <p><em>(Các mục trên là dự kiến / đang thực hiện.)</em></p>
+        </section>
+
+        <section class="list-section page" id="projects">
+            <h2>Projects</h2>
+            <p>Một vài dự án nhỏ mình đã và đang thực hiện trong quá trình học:</p>
+            <h3>1. Trang cá nhân (Personal Portfolio)</h3>
+            <ul>
+                <li><strong>Mô tả:</strong> Website giới thiệu bản thân gồm các mục About, Courses, Research, Publications, Projects.</li>
+                <li><strong>Công nghệ:</strong> HTML, CSS, JavaScript (thuần).</li>
+                <li><strong>Vai trò:</strong> Tự thiết kế và lập trình toàn bộ.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <script>
+        const links = document.querySelectorAll('nav ul li a');
+        const pages = document.querySelectorAll('.page');
+
+        function showPage(id) {
+            pages.forEach(p => p.classList.remove('active'));
+            links.forEach(l => l.classList.remove('active'));
+
+            const target = document.getElementById(id) || document.getElementById('about');
+            target.classList.add('active');
+
+            const activeLink = [...links].find(l => l.dataset.page === target.id);
+            if (activeLink) activeLink.classList.add('active');
+        }
+
+        links.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const id = link.dataset.page;
+                history.pushState(null, '', '#' + id);
+                showPage(id);
+            });
+        });
+
+        window.addEventListener('popstate', () => {
+            showPage(location.hash.replace('#', '') || 'about');
+        });
+
+        showPage(location.hash.replace('#', '') || 'about');
+    </script>
+
+</body>
+</html>
